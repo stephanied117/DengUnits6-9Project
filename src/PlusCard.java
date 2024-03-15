@@ -1,6 +1,6 @@
-public class PlusTwoCard extends Card {
+public class PlusCard extends Card {
     private int addCards;
-    public PlusTwoCard(String color, int hiearchy, int addCards) {
+    public PlusCard(String color, int hiearchy, int addCards) {
         super(color, hiearchy);
         this.addCards = addCards;
     }
