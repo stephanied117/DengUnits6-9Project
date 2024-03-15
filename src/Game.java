@@ -3,5 +3,9 @@ public class Game {
     public Game() {
 
     }
+    public void start() {
+        Deck create = new Deck();
+
+    }
 
 }
