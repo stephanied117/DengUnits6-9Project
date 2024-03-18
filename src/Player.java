@@ -6,4 +6,7 @@ public class Player {
         this.name = name;
         myDeck = new ArrayList<>();
     }
+    public void addCards(Card card) {
+        myDeck.add(card);
+    }
 }

@@ -5,4 +5,7 @@ public class Bot {
     public Bot() {
         botDeck = new ArrayList<>();
     }
+    public void addCards(Card card) {
+        botDeck.add(card);
+    }
 }

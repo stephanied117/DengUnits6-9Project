@@ -152,7 +152,15 @@ public class Deck {
 
     }
     public void passOutCards() {
-
+        int count = 0;
+        while (count < 17) {
+            if (count % 2 == 0) {
+                Player.addCards(deck.get(count));
+            } else if (count % 2 == 1) {
+                Bot.addCards(deck.get(count));
+            }
+            count++;
+        }
     }
 
 }
