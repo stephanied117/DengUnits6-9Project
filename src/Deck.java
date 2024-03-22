@@ -3,7 +3,10 @@ import java.util.concurrent.Callable;
 
 public class Deck {
     private ArrayList<Card> deck;
+    private int passOutCounter;
     public Deck() {
+        passOutCounter = 0;
+
         // red
         NumberCard red1 = new NumberCard("red", 0, 1);
         NumberCard red2 = new NumberCard("red", 0, 2);
@@ -152,14 +155,14 @@ public class Deck {
 
     }
     public void passOutCards() {
-        int count = 0;
-        while (count < 17) {
-            if (count % 2 == 0) {
-                Player.addCards(deck.get(count));
-            } else if (count % 2 == 1) {
-                Bot.addCards(deck.get(count));
+        passOutCounter = 0;
+        while (passOutCounter < 17) {
+            if (passOutCounter % 2 == 0) {
+                Player.addCards(deck.get(passOutCounter));
+            } else if (passOutCounter % 2 == 1) {
+                Bot.addCards(deck.get(passOutCounter));
             }
-            count++;
+            passOutCounter++;
         }
     }
 
