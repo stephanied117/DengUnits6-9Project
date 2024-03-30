@@ -53,12 +53,12 @@ public class Deck {
         NumberCard yel8b = new NumberCard("yellow", 1, 8);
         NumberCard yel9b = new NumberCard("yellow", 1, 9);
         NumberCard yel0b = new NumberCard("yellow", 1, 0);
-        ReverseCard yelRev = new ReverseCard("yellow", 0, true);
-        ReverseCard yelRevb = new ReverseCard("yellow", 0, true);
-        SkipCard yelSk = new SkipCard("yellow", 0, true);
-        SkipCard yelSkb = new SkipCard("yellow", 0, true);
-        PlusCard yelPlus = new PlusCard("yellow", 0, 2);
-        PlusCard yelPlusb = new PlusCard("yellow", 0, 2);
+        ReverseCard yelRev = new ReverseCard("yellow", 2, true);
+        ReverseCard yelRevb = new ReverseCard("yellow", 2, true);
+        SkipCard yelSk = new SkipCard("yellow", 2, true);
+        SkipCard yelSkb = new SkipCard("yellow", 2, true);
+        PlusCard yelPlus = new PlusCard("yellow", 3, 2);
+        PlusCard yelPlusb = new PlusCard("yellow", 3, 2);
 
         // green
         NumberCard gre1 = new NumberCard("yellow", 1, 1);
@@ -81,12 +81,12 @@ public class Deck {
         NumberCard gre8b = new NumberCard("yellow", 1, 8);
         NumberCard gre9b = new NumberCard("yellow", 1, 9);
         NumberCard gre0b = new NumberCard("yellow", 1, 0);
-        ReverseCard greRev = new ReverseCard("yellow", 0, true);
-        ReverseCard greRevb = new ReverseCard("yellow", 0, true);
-        SkipCard greSk = new SkipCard("yellow", 0, true);
-        SkipCard greSkb = new SkipCard("yellow", 0, true);
-        PlusCard grePlus = new PlusCard("yellow", 0, 2);
-        PlusCard grePlusb = new PlusCard("yellow", 0, 2);
+        ReverseCard greRev = new ReverseCard("yellow", 2, true);
+        ReverseCard greRevb = new ReverseCard("yellow", 2, true);
+        SkipCard greSk = new SkipCard("yellow", 2, true);
+        SkipCard greSkb = new SkipCard("yellow", 2, true);
+        PlusCard grePlus = new PlusCard("yellow", 3, 2);
+        PlusCard grePlusb = new PlusCard("yellow", 3, 2);
 
         // blue
         NumberCard blu1 = new NumberCard("yellow", 1, 1);
@@ -109,22 +109,22 @@ public class Deck {
         NumberCard blu8b = new NumberCard("yellow", 1, 8);
         NumberCard blu9b = new NumberCard("yellow", 1, 9);
         NumberCard blu0b = new NumberCard("yellow", 1, 0);
-        ReverseCard bluRev = new ReverseCard("yellow", 0, true);
-        ReverseCard bluRevb = new ReverseCard("yellow", 0, true);
-        SkipCard bluSk = new SkipCard("yellow", 0, true);
-        SkipCard bluSkb = new SkipCard("yellow", 0, true);
-        PlusCard bluPlus = new PlusCard("yellow", 0, 2);
-        PlusCard bluPlusb = new PlusCard("yellow", 0, 2);
+        ReverseCard bluRev = new ReverseCard("yellow", 2, true);
+        ReverseCard bluRevb = new ReverseCard("yellow", 2, true);
+        SkipCard bluSk = new SkipCard("yellow", 2, true);
+        SkipCard bluSkb = new SkipCard("yellow", 2, true);
+        PlusCard bluPlus = new PlusCard("yellow", 3, 2);
+        PlusCard bluPlusb = new PlusCard("yellow", 3, 2);
 
         // other (wild)
-        ColorChangeCard change1 = new ColorChangeCard("wild", 0, true);
-        ColorChangeCard change2 = new ColorChangeCard("wild", 0, true);
-        ColorChangeCard change3 = new ColorChangeCard("wild", 0, true);
-        ColorChangeCard change4 = new ColorChangeCard("wild", 0, true);
-        PlusCard fourPlus1 = new PlusCard("wild", 0, 4);
-        PlusCard fourPlus2 = new PlusCard("wild", 0, 4);
-        PlusCard fourPlus3 = new PlusCard("wild", 0, 4);
-        PlusCard fourPlus4 = new PlusCard("wild", 0, 4);
+        ColorChangeCard change1 = new ColorChangeCard("wild", 4, true);
+        ColorChangeCard change2 = new ColorChangeCard("wild", 4, true);
+        ColorChangeCard change3 = new ColorChangeCard("wild", 4, true);
+        ColorChangeCard change4 = new ColorChangeCard("wild", 4, true);
+        PlusCard fourPlus1 = new PlusCard("wild", 5, 4);
+        PlusCard fourPlus2 = new PlusCard("wild", 5, 4);
+        PlusCard fourPlus3 = new PlusCard("wild", 5, 4);
+        PlusCard fourPlus4 = new PlusCard("wild", 5, 4);
 
         // objects added to arraylist
         deck.add(red1);
@@ -256,6 +256,4 @@ public class Deck {
             deck.add(c);
         }
     }
-    public
-
 }
