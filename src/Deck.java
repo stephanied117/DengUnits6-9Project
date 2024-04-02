@@ -1,8 +1,26 @@
 import java.util.ArrayList;
 public class Deck {
+    private ArrayList<Card> emptyCards;
     private ArrayList<Card> deck;
+    private ArrayList<Card> botDeck;
+    private ArrayList<Card> playerDeck;
+    private ArrayList<Card> placedPile;
     public Deck() {
+        // array lists for cards
+        emptyCards = new ArrayList<>();
         deck = new ArrayList<>();
+        botDeck = new ArrayList<>();
+        playerDeck = new ArrayList<>();
+        placedPile = new ArrayList<>();
+
+        // empty card objects
+        NumberCard num = new NumberCard(null, 0, -1);
+        ReverseCard rev = new ReverseCard(null, 0, false);
+        SkipCard skip = new SkipCard(null, 0, false);
+        PlusCard plus = new PlusCard(null, 0, 0);
+        ColorChangeCard color = new ColorChangeCard(null, 0, false);
+
+        //red
         NumberCard red1 = new NumberCard("red", 1, 1);
         NumberCard red2 = new NumberCard("red", 1, 2);
         NumberCard red3 = new NumberCard("red", 1, 3);
@@ -22,7 +40,6 @@ public class Deck {
         NumberCard red7b = new NumberCard("red", 1, 7);
         NumberCard red8b = new NumberCard("red", 1, 8);
         NumberCard red9b = new NumberCard("red", 1, 9);
-        NumberCard red0b = new NumberCard("red", 1, 0);
         ReverseCard redRev = new ReverseCard("red", 2, true);
         ReverseCard redRevb = new ReverseCard("red", 2, true);
         SkipCard redSk = new SkipCard("red", 2, true);
@@ -50,7 +67,6 @@ public class Deck {
         NumberCard yel7b = new NumberCard("yellow", 1, 7);
         NumberCard yel8b = new NumberCard("yellow", 1, 8);
         NumberCard yel9b = new NumberCard("yellow", 1, 9);
-        NumberCard yel0b = new NumberCard("yellow", 1, 0);
         ReverseCard yelRev = new ReverseCard("yellow", 2, true);
         ReverseCard yelRevb = new ReverseCard("yellow", 2, true);
         SkipCard yelSk = new SkipCard("yellow", 2, true);
@@ -78,7 +94,6 @@ public class Deck {
         NumberCard gre7b = new NumberCard("green", 1, 7);
         NumberCard gre8b = new NumberCard("green", 1, 8);
         NumberCard gre9b = new NumberCard("green", 1, 9);
-        NumberCard gre0b = new NumberCard("green", 1, 0);
         ReverseCard greRev = new ReverseCard("green", 2, true);
         ReverseCard greRevb = new ReverseCard("green", 2, true);
         SkipCard greSk = new SkipCard("green", 2, true);
@@ -106,7 +121,6 @@ public class Deck {
         NumberCard blu7b = new NumberCard("blue", 1, 7);
         NumberCard blu8b = new NumberCard("blue", 1, 8);
         NumberCard blu9b = new NumberCard("blue", 1, 9);
-        NumberCard blu0b = new NumberCard("blue", 1, 0);
         ReverseCard bluRev = new ReverseCard("blue", 2, true);
         ReverseCard bluRevb = new ReverseCard("blue", 2, true);
         SkipCard bluSk = new SkipCard("blue", 2, true);
@@ -124,7 +138,14 @@ public class Deck {
         PlusCard fourPlus3 = new PlusCard("wild", 5, 4);
         PlusCard fourPlus4 = new PlusCard("wild", 5, 4);
 
-        // objects added to arraylist
+        // empty objects added to array list
+        emptyCards.add(num);
+        emptyCards.add(rev);
+        emptyCards.add(skip);
+        emptyCards.add(plus);
+        emptyCards.add(color);
+
+        // objects added to deck arraylist
         deck.add(red1);
         deck.add(red2);
         deck.add(red3);
@@ -150,7 +171,6 @@ public class Deck {
         deck.add(redSkb);
         deck.add(redPlus);
         deck.add(redPlusb);
-
         deck.add(yel1);
         deck.add(yel2);
         deck.add(yel3);
@@ -176,7 +196,6 @@ public class Deck {
         deck.add(yelSkb);
         deck.add(yelPlus);
         deck.add(yelPlusb);
-
         deck.add(gre1);
         deck.add(gre2);
         deck.add(gre3);
@@ -202,7 +221,6 @@ public class Deck {
         deck.add(greSkb);
         deck.add(grePlus);
         deck.add(grePlusb);
-
         deck.add(blu1);
         deck.add(blu2);
         deck.add(blu3);
@@ -228,7 +246,6 @@ public class Deck {
         deck.add(bluSkb);
         deck.add(bluPlus);
         deck.add(bluPlusb);
-
         deck.add(change1);
         deck.add(change2);
         deck.add(change3);
@@ -243,7 +260,6 @@ public class Deck {
         int originalSize = deck.size();
         while (temp.size() != originalSize) {
             int die = (int)(Math.random() * (deck.size() - 1));
-            System.out.println(die);
             temp.add(deck.get(die));
             deck.remove(die);
         }
@@ -252,13 +268,39 @@ public class Deck {
         }
     }
     public void passOut() {
-        for (int i = 0; i < 14; i++) {
+        for (int i = deck.size() - 1; i > deck.size() - 15; i--) {
             if (i % 2 == 0) {
                 botDeck.add(deck.get(i));
             }
             if (i % 2 == 1) {
-
+                playerDeck.add(deck.get(i));
             }
         }
     }
+    public void startingCard() {
+        placedPile.add(deck.get(deck.size() - 1));
+        String message = "A " + placedPile.get(placedPile.size() - 1).getColor();
+        if (placedPile.get(placedPile.size() - 1).getClass() == emptyCards.get(0).getClass()) {
+            message += " " + (placedPile.get(placedPile.size() - 1))
+        }
+    }
+    public ArrayList<Card> getBotDeck() {
+        return botDeck;
+    }
+    public ArrayList<Card> getPlayerDeck() {
+        return playerDeck;
+    }
+    public ArrayList<Card> getPlacedPile() {
+        return placedPile;
+    }
+    public int getNumBotCards() {
+        return botDeck.size();
+    }
+    public int getNumPlayerCards() {
+        return playerDeck.size();
+    }
+    public int getNumPlacedCards() {
+        return placedPile.size();
+    }
+
 }
