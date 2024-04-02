@@ -1,10 +1,8 @@
 import java.util.ArrayList;
-import java.util.concurrent.Callable;
-
 public class Deck {
     private ArrayList<Card> deck;
     public Deck() {
-        // red
+        deck = new ArrayList<>();
         NumberCard red1 = new NumberCard("red", 1, 1);
         NumberCard red2 = new NumberCard("red", 1, 2);
         NumberCard red3 = new NumberCard("red", 1, 3);
@@ -61,60 +59,60 @@ public class Deck {
         PlusCard yelPlusb = new PlusCard("yellow", 3, 2);
 
         // green
-        NumberCard gre1 = new NumberCard("yellow", 1, 1);
-        NumberCard gre2 = new NumberCard("yellow", 1, 2);
-        NumberCard gre3 = new NumberCard("yellow", 1, 3);
-        NumberCard gre4 = new NumberCard("yellow", 1, 4);
-        NumberCard gre5 = new NumberCard("yellow", 1, 5);
-        NumberCard gre6 = new NumberCard("yellow", 1, 6);
-        NumberCard gre7 = new NumberCard("yellow", 1, 7);
-        NumberCard gre8 = new NumberCard("yellow", 1, 8);
-        NumberCard gre9 = new NumberCard("yellow", 1, 9);
-        NumberCard gre0 = new NumberCard("yellow", 1, 0);
-        NumberCard gre1b = new NumberCard("yellow", 1, 1);
-        NumberCard gre2b = new NumberCard("yellow", 1, 2);
-        NumberCard gre3b = new NumberCard("yellow", 1, 3);
-        NumberCard gre4b = new NumberCard("yellow", 1, 4);
-        NumberCard gre5b = new NumberCard("yellow", 1, 5);
-        NumberCard gre6b = new NumberCard("yellow", 1, 6);
-        NumberCard gre7b = new NumberCard("yellow", 1, 7);
-        NumberCard gre8b = new NumberCard("yellow", 1, 8);
-        NumberCard gre9b = new NumberCard("yellow", 1, 9);
-        NumberCard gre0b = new NumberCard("yellow", 1, 0);
-        ReverseCard greRev = new ReverseCard("yellow", 2, true);
-        ReverseCard greRevb = new ReverseCard("yellow", 2, true);
-        SkipCard greSk = new SkipCard("yellow", 2, true);
-        SkipCard greSkb = new SkipCard("yellow", 2, true);
-        PlusCard grePlus = new PlusCard("yellow", 3, 2);
-        PlusCard grePlusb = new PlusCard("yellow", 3, 2);
+        NumberCard gre1 = new NumberCard("green", 1, 1);
+        NumberCard gre2 = new NumberCard("green", 1, 2);
+        NumberCard gre3 = new NumberCard("green", 1, 3);
+        NumberCard gre4 = new NumberCard("green", 1, 4);
+        NumberCard gre5 = new NumberCard("green", 1, 5);
+        NumberCard gre6 = new NumberCard("green", 1, 6);
+        NumberCard gre7 = new NumberCard("green", 1, 7);
+        NumberCard gre8 = new NumberCard("green", 1, 8);
+        NumberCard gre9 = new NumberCard("green", 1, 9);
+        NumberCard gre0 = new NumberCard("green", 1, 0);
+        NumberCard gre1b = new NumberCard("green", 1, 1);
+        NumberCard gre2b = new NumberCard("green", 1, 2);
+        NumberCard gre3b = new NumberCard("green", 1, 3);
+        NumberCard gre4b = new NumberCard("green", 1, 4);
+        NumberCard gre5b = new NumberCard("green", 1, 5);
+        NumberCard gre6b = new NumberCard("green", 1, 6);
+        NumberCard gre7b = new NumberCard("green", 1, 7);
+        NumberCard gre8b = new NumberCard("green", 1, 8);
+        NumberCard gre9b = new NumberCard("green", 1, 9);
+        NumberCard gre0b = new NumberCard("green", 1, 0);
+        ReverseCard greRev = new ReverseCard("green", 2, true);
+        ReverseCard greRevb = new ReverseCard("green", 2, true);
+        SkipCard greSk = new SkipCard("green", 2, true);
+        SkipCard greSkb = new SkipCard("green", 2, true);
+        PlusCard grePlus = new PlusCard("green", 3, 2);
+        PlusCard grePlusb = new PlusCard("green", 3, 2);
 
         // blue
-        NumberCard blu1 = new NumberCard("yellow", 1, 1);
-        NumberCard blu2 = new NumberCard("yellow", 1, 2);
-        NumberCard blu3 = new NumberCard("yellow", 1, 3);
-        NumberCard blu4 = new NumberCard("yellow", 1, 4);
-        NumberCard blu5 = new NumberCard("yellow", 1, 5);
-        NumberCard blu6 = new NumberCard("yellow", 1, 6);
-        NumberCard blu7 = new NumberCard("yellow", 1, 7);
-        NumberCard blu8 = new NumberCard("yellow", 1, 8);
-        NumberCard blu9 = new NumberCard("yellow", 1, 9);
-        NumberCard blu0 = new NumberCard("yellow", 1, 0);
-        NumberCard blu1b = new NumberCard("yellow", 1, 1);
-        NumberCard blu2b = new NumberCard("yellow", 1, 2);
-        NumberCard blu3b = new NumberCard("yellow", 1, 3);
-        NumberCard blu4b = new NumberCard("yellow", 1, 4);
-        NumberCard blu5b = new NumberCard("yellow", 1, 5);
-        NumberCard blu6b = new NumberCard("yellow", 1, 6);
-        NumberCard blu7b = new NumberCard("yellow", 1, 7);
-        NumberCard blu8b = new NumberCard("yellow", 1, 8);
-        NumberCard blu9b = new NumberCard("yellow", 1, 9);
-        NumberCard blu0b = new NumberCard("yellow", 1, 0);
-        ReverseCard bluRev = new ReverseCard("yellow", 2, true);
-        ReverseCard bluRevb = new ReverseCard("yellow", 2, true);
-        SkipCard bluSk = new SkipCard("yellow", 2, true);
-        SkipCard bluSkb = new SkipCard("yellow", 2, true);
-        PlusCard bluPlus = new PlusCard("yellow", 3, 2);
-        PlusCard bluPlusb = new PlusCard("yellow", 3, 2);
+        NumberCard blu1 = new NumberCard("blue", 1, 1);
+        NumberCard blu2 = new NumberCard("blue", 1, 2);
+        NumberCard blu3 = new NumberCard("blue", 1, 3);
+        NumberCard blu4 = new NumberCard("blue", 1, 4);
+        NumberCard blu5 = new NumberCard("blue", 1, 5);
+        NumberCard blu6 = new NumberCard("blue", 1, 6);
+        NumberCard blu7 = new NumberCard("blue", 1, 7);
+        NumberCard blu8 = new NumberCard("blue", 1, 8);
+        NumberCard blu9 = new NumberCard("blue", 1, 9);
+        NumberCard blu0 = new NumberCard("blue", 1, 0);
+        NumberCard blu1b = new NumberCard("blue", 1, 1);
+        NumberCard blu2b = new NumberCard("blue", 1, 2);
+        NumberCard blu3b = new NumberCard("blue", 1, 3);
+        NumberCard blu4b = new NumberCard("blue", 1, 4);
+        NumberCard blu5b = new NumberCard("blue", 1, 5);
+        NumberCard blu6b = new NumberCard("blue", 1, 6);
+        NumberCard blu7b = new NumberCard("blue", 1, 7);
+        NumberCard blu8b = new NumberCard("blue", 1, 8);
+        NumberCard blu9b = new NumberCard("blue", 1, 9);
+        NumberCard blu0b = new NumberCard("blue", 1, 0);
+        ReverseCard bluRev = new ReverseCard("blue", 2, true);
+        ReverseCard bluRevb = new ReverseCard("blue", 2, true);
+        SkipCard bluSk = new SkipCard("blue", 2, true);
+        SkipCard bluSkb = new SkipCard("blue", 2, true);
+        PlusCard bluPlus = new PlusCard("blue", 3, 2);
+        PlusCard bluPlusb = new PlusCard("blue", 3, 2);
 
         // other (wild)
         ColorChangeCard change1 = new ColorChangeCard("wild", 4, true);
@@ -146,7 +144,6 @@ public class Deck {
         deck.add(red7b);
         deck.add(red8b);
         deck.add(red9b);
-        deck.add(red0b);
         deck.add(redRev);
         deck.add(redRevb);
         deck.add(redSk);
@@ -173,7 +170,6 @@ public class Deck {
         deck.add(yel7b);
         deck.add(yel8b);
         deck.add(yel9b);
-        deck.add(yel0b);
         deck.add(yelRev);
         deck.add(yelRevb);
         deck.add(yelSk);
@@ -200,7 +196,6 @@ public class Deck {
         deck.add(gre7b);
         deck.add(gre8b);
         deck.add(gre9b);
-        deck.add(gre0b);
         deck.add(greRev);
         deck.add(greRevb);
         deck.add(greSk);
@@ -227,7 +222,6 @@ public class Deck {
         deck.add(blu7b);
         deck.add(blu8b);
         deck.add(blu9b);
-        deck.add(blu0b);
         deck.add(bluRev);
         deck.add(bluRevb);
         deck.add(bluSk);
@@ -244,16 +238,27 @@ public class Deck {
         deck.add(fourPlus3);
         deck.add(fourPlus4);
     }
-    public void shuffleDeck() {
+    public void shuffle() {
         ArrayList<Card> temp = new ArrayList<>();
-        int deckLength = deck.size();
-        while (temp.size() != deckLength) {
-            int rng = (int) Math.random() * (deck.size() - 1);
-            temp.add(deck.get(rng));
-            deck.remove(rng);
+        int originalSize = deck.size();
+        while (temp.size() != originalSize) {
+            int die = (int)(Math.random() * (deck.size() - 1));
+            System.out.println(die);
+            temp.add(deck.get(die));
+            deck.remove(die);
         }
         for (Card c : temp) {
             deck.add(c);
+        }
+    }
+    public void passOut() {
+        for (int i = 0; i < 14; i++) {
+            if (i % 2 == 0) {
+                botDeck.add(deck.get(i));
+            }
+            if (i % 2 == 1) {
+
+            }
         }
     }
 }
