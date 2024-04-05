@@ -5,9 +5,9 @@ public class Game {
     }
     public void start() {
         Deck create = new Deck();
-        create.shuffle();
-        Bot bob = new Bot();
-        Player you = new Player();
+        for (int i = 0; i < (int)Math.random(); i++) {
+            create.shuffle();
+        }
         create.passOut();
         create.startingCard();
     }

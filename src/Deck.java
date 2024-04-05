@@ -1,3 +1,5 @@
+import com.sun.jdi.ObjectReference;
+
 import java.util.ArrayList;
 public class Deck {
     private ArrayList<Card> emptyCards;
@@ -281,8 +283,18 @@ public class Deck {
         placedPile.add(deck.get(deck.size() - 1));
         String message = "A " + placedPile.get(placedPile.size() - 1).getColor();
         if (placedPile.get(placedPile.size() - 1).getClass() == emptyCards.get(0).getClass()) {
-            message += " " + (placedPile.get(placedPile.size() - 1))
+            NumberCard temp = (NumberCard)placedPile.get(placedPile.size() - 1);
+            message += " " + temp.getNumber();
+        } else if (placedPile.get(placedPile.size() - 1).getClass() == emptyCards.get(1).getClass()) {
+            message += " reverse ";
+        } else if (placedPile.get(placedPile.size() - 1).getClass() == emptyCards.get(2).getClass()) {
+            message += " skip ";
+        } else if (placedPile.get(placedPile.size() - 1).getClass() == emptyCards.get(3).getClass()) {
+            PlusCard temp = (PlusCard)placedPile.get(placedPile.size() - 1);
+            message += " plus " + temp.getAddCards();
         }
+        message += " card";
+        System.out.println(message);
     }
     public ArrayList<Card> getBotDeck() {
         return botDeck;
