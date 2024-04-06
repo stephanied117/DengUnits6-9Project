@@ -1,5 +1,5 @@
-import com.sun.jdi.ObjectReference;
-
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.ArrayList;
 public class Deck {
     private ArrayList<Card> emptyCards;
@@ -7,6 +7,8 @@ public class Deck {
     private ArrayList<Card> botDeck;
     private ArrayList<Card> playerDeck;
     private ArrayList<Card> placedPile;
+    private Card[] compareCards;
+    private String message;
     public Deck() {
         // array lists for cards
         emptyCards = new ArrayList<>();
@@ -14,6 +16,8 @@ public class Deck {
         botDeck = new ArrayList<>();
         playerDeck = new ArrayList<>();
         placedPile = new ArrayList<>();
+        compareCards = new Card[2];
+        message = "";
 
         // empty card objects
         NumberCard num = new NumberCard(null, 0, -1);
@@ -260,41 +264,43 @@ public class Deck {
     public void shuffle() {
         ArrayList<Card> temp = new ArrayList<>();
         int originalSize = deck.size();
+        int die = 0;
         while (temp.size() != originalSize) {
-            int die = (int)(Math.random() * (deck.size() - 1));
+            die = (int)(Math.random() * deck.size());
             temp.add(deck.get(die));
+            System.out.println(temp.get(temp.size() - 1));
             deck.remove(die);
         }
         for (Card c : temp) {
             deck.add(c);
         }
     }
+    public void dealer() {
+        message = "";
+        compareCards[0] = deck.get((int)(Math.random() * deck.size()));
+        identifyCard(compareCards[0]);
+        System.out.println("You picked up " + message);
+        message = "";
+        compareCards[1] = deck.get((int)(Math.random() * deck.size()));
+        identifyCard(compareCards[1]);
+        System.out.println("They picked up " + message);
+    }
     public void passOut() {
         for (int i = deck.size() - 1; i > deck.size() - 15; i--) {
             if (i % 2 == 0) {
                 botDeck.add(deck.get(i));
-            }
-            if (i % 2 == 1) {
+            } else if (i % 2 == 1) {
                 playerDeck.add(deck.get(i));
             }
         }
     }
     public void startingCard() {
         placedPile.add(deck.get(deck.size() - 1));
-        String message = "A " + placedPile.get(placedPile.size() - 1).getColor();
-        if (placedPile.get(placedPile.size() - 1).getClass() == emptyCards.get(0).getClass()) {
-            NumberCard temp = (NumberCard)placedPile.get(placedPile.size() - 1);
-            message += " " + temp.getNumber();
-        } else if (placedPile.get(placedPile.size() - 1).getClass() == emptyCards.get(1).getClass()) {
-            message += " reverse ";
-        } else if (placedPile.get(placedPile.size() - 1).getClass() == emptyCards.get(2).getClass()) {
-            message += " skip ";
-        } else if (placedPile.get(placedPile.size() - 1).getClass() == emptyCards.get(3).getClass()) {
-            PlusCard temp = (PlusCard)placedPile.get(placedPile.size() - 1);
-            message += " plus " + temp.getAddCards();
-        }
-        message += " card";
+        identifyCard(placedPile.get(placedPile.size() - 1));
         System.out.println(message);
+    }
+    public ArrayList<Card> getDeck() {
+        return deck;
     }
     public ArrayList<Card> getBotDeck() {
         return botDeck;
@@ -314,5 +320,19 @@ public class Deck {
     public int getNumPlacedCards() {
         return placedPile.size();
     }
-
+    private void identifyCard(Card c) {
+        message = "a " + c.getColor();
+        if (c.getClass() == emptyCards.get(0).getClass()) {
+            NumberCard temp = (NumberCard)(c);
+            message += " " + temp.getNumber();
+        } else if (c.getClass() == emptyCards.get(1).getClass()) {
+            message += " reverse";
+        } else if (c.getClass() == emptyCards.get(2).getClass()) {
+            message += " skip";
+        } else if (c.getClass() == emptyCards.get(3).getClass()) {
+            PlusCard temp = (PlusCard)(c);
+            message += " plus " + temp.getAddCards();
+        }
+        message += " card";
+    }
 }
