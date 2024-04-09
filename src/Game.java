@@ -151,9 +151,8 @@ public class Game {
                             temp = i;
                         }
                     }
-                    create.pileCard(create.getBotDeck().get(temp));
-                    create.getBotDeck().remove(temp);
                 } else {
+                    int t = -1;
                     for (int i = 0; i < create.getPlayerDeck().size(); i++) {
                         System.out.print(create.getPlayerDeck().get(i).getForm() + " ");
                     }
@@ -178,6 +177,18 @@ public class Game {
                                             create.getBotDeck().add(create.getDeck().get(create.getDeck().size() - j));
                                         }
                                     }
+                                    if (create.getPlayerDeck().get(i).getSymbol().equals("W")) {
+                                        for (int j = 1; j < 5; j++) {
+                                            create.getBotDeck().add(create.getDeck().get(create.getDeck().size() - j));
+                                            System.out.println("Enter the symbol of the card you want to place");
+                                            s = scan.nextLine();
+                                            if (create.getPlayerDeck().get(j).getColor().equals(j) && create.getPlayerDeck().get(j).getSymbol().equals(j)) {
+                                                if (create.getPlayerDeck().get(j).getColor() == create.getPlacedPile().get(create.getPlacedPile().size() - 1).getColor() && create.getPlayerDeck().get(j).getSymbol() == create.getPlacedPile().get(create.getPlacedPile().size() - 1).getSymbol()) {
+                                                    create.pileCard(create.getPlayerDeck().get(j));
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             } else if (count % 2 == 1) {
                                 if (bob.getDealer() == false) {
@@ -187,8 +198,6 @@ public class Game {
                                             temp = a;
                                         }
                                     }
-                                    create.pileCard(create.getBotDeck().get(temp));
-                                    create.getBotDeck().remove(temp);
                                 } else {
                                     for (int b = 0; b < create.getPlayerDeck().size(); b++) {
                                         System.out.print(create.getPlayerDeck().get(i).getForm() + " ");
@@ -214,6 +223,19 @@ public class Game {
                                                     if (create.getPlayerDeck().get(f).getSymbol().equals("4+")) {
                                                         for (int j = 1; j < 5; j++) {
                                                             create.getBotDeck().add(create.getDeck().get(create.getDeck().size() - j));
+                                                        }
+                                                    }
+                                                    if (create.getPlayerDeck().get(f).getSymbol().equals("W")) {
+                                                        for (int j = 1; j < 5; j++) {
+                                                            create.getBotDeck().add(create.getDeck().get(create.getDeck().size() - j));
+                                                            System.out.println("Enter the symbol of the card you want to place");
+                                                            d = scan.nextLine();
+                                                            if (create.getPlayerDeck().get(f).getColor().equals(e) && create.getPlayerDeck().get(f).getSymbol().equals(d)) {
+                                                                if (create.getPlayerDeck().get(f).getColor() == create.getPlacedPile().get(create.getPlacedPile().size() - 1).getColor() && create.getPlayerDeck().get(f).getSymbol() == create.getPlacedPile().get(create.getPlacedPile().size() - 1).getSymbol()) {
+                                                                    ind = f;
+                                                                    create.pileCard(create.getPlayerDeck().get(f));
+                                                                }
+                                                            }
                                                         }
                                                     }
                                                 }
