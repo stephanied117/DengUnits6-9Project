@@ -1,7 +1,9 @@
-import java.util.ArrayList;
 public class Player {
-    private ArrayList<Card> playerDeck;
-    public Player() {
-
+    private boolean dealer;
+    public Player(boolean dealer) {
+        this.dealer = dealer;
+    }
+    public boolean getDealer() {
+        return dealer;
     }
 }

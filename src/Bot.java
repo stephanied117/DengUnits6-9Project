@@ -1,7 +1,9 @@
-import java.util.ArrayList;
-
 public class Bot {
-    private ArrayList<Card> botDeck;
-    public Bot() {
+    private boolean dealer;
+    public Bot(boolean dealer) {
+        this.dealer = dealer;
+    }
+    public boolean getDealer() {
+        return dealer;
     }
 }
